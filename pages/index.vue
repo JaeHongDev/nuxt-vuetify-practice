@@ -33,8 +33,6 @@
     <div class="text-center">
       <v-btn
         v-if="!alert"
-        color="deep-purple accent-4"
-        dark
         @click="alert = true"
       >
         Reset
@@ -42,15 +40,12 @@
     </div>
     <v-alert
       color="#2A3B4D"
-      dark
       icon="mdi-firework"
-      dense
     >
       Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Vivamus quis mi. Quisque ut nisi. Maecenas malesuada.
     </v-alert>
     <v-alert
       color="primary"
-      dark
       icon="mdi-vuetify"
       border="left"
       prominent
@@ -71,6 +66,37 @@
         </v-col>
       </v-row>
     </v-alert>
+
+    <v-card class="t">1111</v-card>
+
+    <v-container>
+      <v-row justify="center">
+        <v-col cols="6">
+          <v-card class="black fs-1" >
+            <v-card-title class="green darken-4 fs-1">Chocolate cheesecake recipe</v-card-title>
+            <v-card-text class="pt-2">
+              <ul class="subtitle-2">
+                <li>5 eggs</li>
+                <li>1 cup of warm milk</li>
+                <li>2 cups of flour</li>
+                <li>1/2 cup of sugar</li>
+                <li class="red--text">1 lbs Philadelphia cream cheese </li>
+                <li>...</li>
+              </ul>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-card class="xidps-card" color="yellow">
+      <v-col cols="6" class="yellow">
+        <div class="fill-height d-flex justify-center align-center">this should be different color</div>
+      </v-col>
+      <v-col cols="6" class="yellow">
+        <div class="fill-height d-flex justify-center align-center">this should be different color</div>
+      </v-col>
+    </v-card>
   </div>
 </template>
 
@@ -80,7 +106,19 @@ export default {
   data () {
     return {
       alert: true,
+      rules: [
+        value => !!value || 'Required.',
+        value => (value && value.length >= 3) || 'Min 3 characters',
+      ],
     }
   },
 }
 </script>
+
+<style lang="scss">
+.xidps-card{
+  ::v-deep{
+    background-color: #efefef;
+  }
+}
+</style>
